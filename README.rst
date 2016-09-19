@@ -15,10 +15,12 @@ accessible know that this is a real issue.
 Documentation
 =============
 
-Usage: git-pwny.sh DOMAIN
+::
 
-Argument:
-    DOMAIN  Url to access the .git directory (without /.git/)
+    Usage: git-pwny.sh DOMAIN
+
+    Argument:
+        DOMAIN  Url to access the .git directory (without /.git/)
 
 License
 =======
