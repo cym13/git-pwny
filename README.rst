@@ -17,10 +17,13 @@ Documentation
 
 ::
 
-    Usage: git-pwny.sh DOMAIN
+    Usage: ./git-pwny.sh [-h] URL
 
-    Argument:
-        DOMAIN  Url to access the .git directory (without /.git/)
+    Options:
+        -h, --help  Print this help and exit.
+
+    Arguments:
+        URL         URL pointing to the .git directory
 
 License
 =======
