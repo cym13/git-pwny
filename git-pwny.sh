@@ -75,10 +75,30 @@ make_base_dir() {
     popd
 }
 
+HELP="Recover vulnerable .git repository over the web
+
+Usage: $0 [-h] URL
+
+Options:
+    -h, --help  Print this help and exit.
+
+Arguments:
+    URL         URL pointing to the .git directory
+"
+
 main() {
     domain="$1"
 
-    if ! grep -q "://" <<<"$domain" ; then
+    if ! grep -q "://" <<<"$domain" || [ "$1" = "-h" ] || [ "$1" = "--help" ]
+    then
+        echo -n "$HELP"
+        exit 1
+    fi
+
+    domain="${domain/.git/}"
+
+    if ! wget "${domain}/.git/HEAD" -O/dev/null 2>/dev/null ; then
+        echo "Domain not vulnerable"
         exit 1
     fi
 
